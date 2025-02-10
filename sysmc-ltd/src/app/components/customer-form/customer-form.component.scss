@@ -1,0 +1,57 @@
+:host {
+    display: block;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .customer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between form fields */
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .half-width {
+    flex: 1;
+    min-width: 150px;
+  }
+  
+  .section {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .address-item,
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Space between each element */
+    flex-wrap: nowrap;
+  }
+  
+  .address-item button,
+  .contact-item button {
+    align-self: flex-start;
+  }
+  
+  mat-dialog-content {
+    padding-top: 32px; 
+  }
+  
+  /* Add extra space above the form */
+  mat-dialog-content form {
+    margin-top: 32px; /* Adjust the value as needed */
+  }
+  
+  mat-dialog-actions form {
+    margin-top: 10px;
+  }
+
+  .delete-icon {
+    color: #d25d55; /* A common red shade */
+  }
+  

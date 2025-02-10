@@ -1,0 +1,86 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Edit Customer' : 'New Customer' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="customerForm" class="customer-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Customer Name</mat-label>
+      <input matInput formControlName="name" required>  <mat-error *ngIf="customerForm.get('name')?.hasError('required')">
+        required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Customer Number</mat-label>
+      <input matInput formControlName="customerNumber" required maxlength="9">
+      <mat-error *ngIf="customerForm.get('customerNumber')?.hasError('required')">
+        Required
+      </mat-error>
+      <mat-error *ngIf="customerForm.get('customerNumber')?.hasError('nineDigits')">
+        Must be 9 digits
+      </mat-error>
+      <mat-hint align="end">
+        {{ customerForm.get('customerNumber')?.value?.length || 0 }}/9
+      </mat-hint>
+    </mat-form-field>
+    
+    
+
+    <div class="section">
+      <h3>Addresses</h3>
+      <div formArrayName="addresses">
+        <div *ngFor="let address of addresses.controls; let i = index" [formGroupName]="i" class="address-item">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" required> <mat-error *ngIf="address.get('city')?.hasError('required')">
+              Required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street" required> <mat-error *ngIf="address.get('street')?.hasError('required')">
+              Required
+            </mat-error>
+          </mat-form-field>
+          <button mat-icon-button color="warn" (click)="removeAddress(i)">
+            <mat-icon class="delete-icon">delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <button mat-button color="primary" (click)="addAddress()">Add Address</button>
+    </div>
+
+    <div class="section">
+      <h3>Contacts</h3>
+      <div formArrayName="contacts">
+        <div *ngFor="let contact of contacts.controls; let i = index" [formGroupName]="i" class="contact-item">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullName" required> <mat-error *ngIf="contact.get('fullName')?.hasError('required')">
+              Required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Office Number</mat-label>
+            <input matInput formControlName="officeNumber">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error *ngIf="contact.get('email')?.hasError('email')">
+              Not a valid email
+            </mat-error>
+          </mat-form-field>
+          <button mat-icon-button color="warn" (click)="removeContact(i)">
+            <mat-icon class="delete-icon">delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <button mat-button color="primary" (click)="addContact()">Add Contact</button>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button color="primary"  [disabled]="customerForm.invalid" (click)="save()">Save</button>
+</mat-dialog-actions>

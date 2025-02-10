@@ -1,0 +1,40 @@
+﻿[
+  {
+    "Name": "Uri Zeira",
+    "CustomerNumber": "123456789",
+    "Addresses": [
+      {
+        "City": "New York",
+        "Street": "123 Main St",
+        "IsDeleted": false
+      }
+    ],
+    "Contacts": [
+      {
+        "FullName": "Jane Doe",
+        "OfficeNumber": "123-456-7890",
+        "Email": "jane.doe@example.com",
+        "IsDeleted": false
+      }
+    ]
+  },
+  {
+    "Name": "Eli Giterman", 
+    "CustomerNumber": "987654321",
+    "Addresses": [
+      {
+        "City": "Los Angeles",
+        "Street": "456 Elm St",
+        "IsDeleted": false
+      }
+    ],
+    "Contacts": [
+      {
+        "FullName": "Bob Smith",
+        "OfficeNumber": "987-654-3210",
+        "Email": "bob.smith@example.com",
+        "IsDeleted": false
+      }
+    ]
+  }
+]

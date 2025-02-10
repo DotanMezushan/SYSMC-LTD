@@ -1,0 +1,26 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #34495e; // צבע כהה יותר
+    color: white;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+  
+  .footer-text {
+    display: block;
+    width: 100%;
+  }
+  
+  .footer a {
+    color: #f39c12; // צבע כתום לקישור
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer a:hover {
+    color: #e67e22; // כהה יותר בהובר
+  }
+  

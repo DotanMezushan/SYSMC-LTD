@@ -1,0 +1,18 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* גוף הדף */
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  
+  /* Footer יהיה צמוד תמיד לתחתית */
+  .footer {
+    margin-top: auto; /* מבטיח שה-footer יישאר בתחתית */
+  }
+  

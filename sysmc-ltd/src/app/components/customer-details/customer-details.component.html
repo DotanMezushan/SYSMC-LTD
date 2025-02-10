@@ -1,0 +1,27 @@
+<div *ngIf="customer" class="customer-details">
+  <h2>{{ customer.name }}</h2>
+  <p><strong>Customer Number:</strong> {{ customer.customerNumber }}</p>
+  <p><strong>Created:</strong> {{ customer.created | date }}</p>
+
+  <h3>Addresses:</h3>
+  <ul>
+    <li *ngFor="let address of customer.addresses">
+      <p>{{ address.city }}, {{ address.street }}</p>
+    </li>
+  </ul>
+
+  <h3>Contacts:</h3>
+  <ul>
+    <li *ngFor="let contact of customer.contacts">
+      <p>{{ contact.fullName }}</p>
+      <p *ngIf="contact.officeNumber"><strong>Office:</strong> {{ contact.officeNumber }}</p>
+      <p *ngIf="contact.email"><strong>Email:</strong> <a [href]="'mailto:' + contact.email">{{ contact.email }}</a></p>
+    </li>
+  </ul>
+
+  <div class="button-container">
+    <button mat-stroked-button color="primary" (click)="navigetToHome()">
+      Back
+    </button>
+  </div>
+</div>
